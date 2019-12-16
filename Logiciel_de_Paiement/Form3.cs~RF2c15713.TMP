@@ -1,0 +1,237 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+
+namespace Logiciel_de_Paiement
+{
+    public partial class Form3 : Form
+    {
+        public Form3()
+        {
+            InitializeComponent();
+        }
+        SqlConnection conn = new SqlConnection("Data Source=DESKTOP-RQ9PT5M;Initial" + " Catalog=LogicielDePaiement;Integrated Security=True");
+        SqlConnection cnx = new SqlConnection("Data Source=DESKTOP-RQ9PT5M;Initial" + " Catalog=Fiche_Paiement;Integrated Security=True");
+
+        private void Button_Ajouter_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tb_Matricule.Text == "" || tb_Nom.Text == "" || tb_Prenom.Text == "" || tb_Classe.Text == "" || tb_échéance_Fr.Text == "" || tb_échéance_Sc.Text == "" || tb_échéance_Tr.Text == "" || tb_échéance_ps1.Text == "" || tb_échéance_ps2.Text == "" || tb_échéance_ps3.Text == "")
+                {
+                    MessageBox.Show("error");
+                }
+                else
+                {
+                    conn.Open();
+                    string sql = "insert into etudiant( id_etu, Nom_etu,Prenom_etu, date_Nc,classe,AnnésSc,date_InS,Nom_Utl,Fr_éch,Fr_Nbé,Fr_Base,Fr_Total,Fr_Solde,Sc_éch,Sc_Nbé,Sc_Base,Sc_Total,Sc_Solde,Tr_éch,Tr_Nbé,Tr_Base,Tr_Total,Tr_Solde,Ps1_éch,Ps1_Nbé,Ps1_Base,Ps1_Total,Ps1_Solde,Ps2_éch,Ps2_Nbé,Ps2_Base,Ps2_Total,Ps2_Solde,Ps3_éch,Ps3_Nbé,Ps3_Base,Ps3_Total,Ps3_Solde)";
+                    sql = sql + "values(@p1,@p2,@p3,@p4,@p5,@p6,@pDis,@pNomUTL,@p7,@p8,@p9,@p10,@p11,@p12,@p13,@p14,@p15,@p16,@p17,@p18,@p19,@p20,@p21,@p22,@p23,@p24,@p25,@p26,@p27,@p28,@p29,@p30,@p31,@p32,@p33,@p34,@p35,@p36)";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("p1", tb_Matricule.Text);
+                    cmd.Parameters.AddWithValue("p2", tb_Nom.Text);
+                    cmd.Parameters.AddWithValue("p3", tb_Prenom.Text);
+                    cmd.Parameters.AddWithValue("p4", dateTimePicker_DN.Value);
+                    cmd.Parameters.AddWithValue("p5", tb_Classe.Text);
+                    cmd.Parameters.AddWithValue("p6", label_AnnesScolaire.Text);
+                    cmd.Parameters.AddWithValue("pDis", dateTimePicker_Djeur.Value);
+                    cmd.Parameters.AddWithValue("pNomUTL", label_UserName1.Text);
+                    //parametre de Frais
+                    cmd.Parameters.AddWithValue("p7", tb_échéance_Fr.Text);
+                    cmd.Parameters.AddWithValue("p8", N_UpDown_Fr.Value);
+
+                    cmd.Parameters.AddWithValue("p9", label_Base_Fr.Text);
+
+                    cmd.Parameters.AddWithValue("p10", label_Total_Fr.Text);
+
+                    cmd.Parameters.AddWithValue("p11", label_Solde_Fr.Text);
+                    //parametre de Scolaire
+                    cmd.Parameters.AddWithValue("p12", tb_échéance_Sc.Text);
+                    cmd.Parameters.AddWithValue("p13", N_UpDown_Sc.Text);
+                    cmd.Parameters.AddWithValue("p14", label_Base_Sc.Text);
+
+                    cmd.Parameters.AddWithValue("p15", label_Total_Sc.Text);
+
+                    cmd.Parameters.AddWithValue("p16", label_Solde_Sc.Text);
+                    //parametre de Transport
+                    cmd.Parameters.AddWithValue("p17", tb_échéance_Tr.Text);
+                    cmd.Parameters.AddWithValue("p18", N_UpDown_Tr.Text);
+
+                    cmd.Parameters.AddWithValue("p19", label_Base_Tr.Text);
+
+                    cmd.Parameters.AddWithValue("p20", label_Total_Tr.Text);
+
+                    cmd.Parameters.AddWithValue("p21", label_Solde_Tr.Text);
+                    //parametre de prestation1
+                    cmd.Parameters.AddWithValue("p22", tb_échéance_ps1.Text);
+                    cmd.Parameters.AddWithValue("p23", N_UpDown_Ps1.Text);
+
+                    cmd.Parameters.AddWithValue("p24", label_Base_Ps1.Text);
+
+                    cmd.Parameters.AddWithValue("p25", label_Total_Ps1.Text);
+
+                    cmd.Parameters.AddWithValue("p26", label_Solde_Ps1.Text);
+                    //parametre de prestation2
+                    cmd.Parameters.AddWithValue("p27", tb_échéance_ps2.Text);
+                    cmd.Parameters.AddWithValue("p28", N_UpDown_Ps2.Text);
+
+                    cmd.Parameters.AddWithValue("p29", label_Base_Ps2.Text);
+
+                    cmd.Parameters.AddWithValue("p30", label_Total_Ps2.Text);
+
+                    cmd.Parameters.AddWithValue("p31", label_Solde_Ps2.Text);
+                    //parametre de prestation3
+                    cmd.Parameters.AddWithValue("p32", tb_échéance_ps3.Text);
+                    cmd.Parameters.AddWithValue("p33", N_UpDown_Ps3.Text);
+
+
+                    cmd.Parameters.AddWithValue("p34", label_Base_Ps3.Text);
+
+                    cmd.Parameters.AddWithValue("p35", label_Total_Ps3.Text);
+
+                    cmd.Parameters.AddWithValue("p36", label_Solde_Ps3.Text);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("etudiant Ajouter");
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Button_Modifier_Click(object sender, EventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand("update etudiant set Nom_etu = @Nom_etu,Prenom_etu = @Prenom_etu,date_Nc=@date_Nc,classe=@classe,Fr_éch=@Fr_éch,Fr_Nbé=@Fr_Nbé,Fr_Base=@Fr_Base,   Sc_éch=@Sc_éch,Sc_Nbé=@Sc_Nbé,Sc_Base=@Sc_Base,  Tr_éch=@Tr_éch,Tr_Nbé=@Tr_Nbé,Tr_Base=@Tr_Base,  Ps1_éch=@Ps1_éch,Ps1_Nbé=@Ps1_Nbé,Ps1_Base=@Ps1_Base,  Ps2_éch=@Ps2_éch,Ps2_Nbé=@Ps2_Nbé,Ps2_Base=@Ps2_Base,  Ps3_éch=@Ps3_éch,Ps3_Nbé=@Ps3_Nbé,Ps3_Base=@Ps3_Base   where id_etu =@id", conn);
+            cmd.Parameters.AddWithValue("id", tb_Matricule.Text);
+            cmd.Parameters.AddWithValue("Nom_etu", tb_Nom.Text);
+            cmd.Parameters.AddWithValue("Prenom_etu", tb_Prenom.Text);
+            cmd.Parameters.AddWithValue("date_Nc", dateTimePicker_DN.Value);
+            cmd.Parameters.AddWithValue("classe", tb_Classe.Text);
+            //parametre de Frais
+            cmd.Parameters.AddWithValue("Fr_éch", tb_échéance_Fr.Text);
+            cmd.Parameters.AddWithValue("Fr_Nbé", N_UpDown_Fr.Value);
+            cmd.Parameters.AddWithValue("Fr_Base", label_Base_Fr.Text);
+            //parametre de Scolaire
+            cmd.Parameters.AddWithValue("Sc_éch", tb_échéance_Sc.Text);
+            cmd.Parameters.AddWithValue("Sc_Nbé", N_UpDown_Sc.Text);
+            cmd.Parameters.AddWithValue("Sc_Base", label_Base_Sc.Text);
+            //parametre de Transport
+            cmd.Parameters.AddWithValue("Tr_éch", tb_échéance_Tr.Text);
+            cmd.Parameters.AddWithValue("Tr_Nbé", N_UpDown_Tr.Text);
+            cmd.Parameters.AddWithValue("Tr_Base", label_Base_Tr.Text);
+            //parametre de prestation1
+            cmd.Parameters.AddWithValue("Ps1_éch", tb_échéance_ps1.Text);
+            cmd.Parameters.AddWithValue("Ps1_Nbé", N_UpDown_Ps1.Text);
+            cmd.Parameters.AddWithValue("Ps1_Base", label_Base_Ps1.Text);
+            //parametre de prestation2
+            cmd.Parameters.AddWithValue("Ps2_éch", tb_échéance_ps2.Text);
+            cmd.Parameters.AddWithValue("Ps2_Nbé", N_UpDown_Ps2.Text);
+            cmd.Parameters.AddWithValue("Ps2_Base", label_Base_Ps2.Text);
+            //parametre de prestation3
+            cmd.Parameters.AddWithValue("Ps3_éch", tb_échéance_ps3.Text);
+            cmd.Parameters.AddWithValue("Ps3_Nbé", N_UpDown_Ps3.Text);
+            cmd.Parameters.AddWithValue("Ps3_Base", label_Base_Ps3.Text);
+            conn.Open();
+            cmd.ExecuteNonQuery(); // Exécution de la requête SQL
+            MessageBox.Show("La modification a été effectuée avec succè");
+            conn.Close();
+        }
+
+        private void Button_Supprimer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult res = MessageBox.Show("Voulley vous vraiment Supprimmer cette etudiant", "Confirmation de Suppression", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (res == DialogResult.OK)
+                {
+                    cnx.Open();
+                    string sql = "insert into Suppression( id_Supp, Name_Supp,Prenom_Supp,Utl_Supp,Date_Supp)";
+                    sql = sql + "values(@p1,@p2,@p3,@p4,@p5)";
+                    SqlCommand commd = new SqlCommand(sql, cnx);
+                    commd.Parameters.Clear();
+                    commd.Parameters.AddWithValue("p1", tb_Matricule.Text);
+                    commd.Parameters.AddWithValue("p2", tb_Nom.Text);
+                    commd.Parameters.AddWithValue("p3", tb_Prenom.Text);
+                    commd.Parameters.AddWithValue("p4", dateTimePicker_Djeur.Value);
+                    commd.Parameters.AddWithValue("p5", label_UserName1.Text);
+                    commd.ExecuteNonQuery();
+                    cnx.Close();
+                    int id = int.Parse(tb_Matricule.Text);
+                    SqlCommand cmd = new SqlCommand("delete from etudiant where id_etu = @id", conn);
+                    cmd.Parameters.AddWithValue("id", id);
+                    conn.Open();
+                    cmd.ExecuteNonQuery(); // Exécution de la requête SQL
+                    MessageBox.Show("La suppression a été effectuée avec succè");
+                    // Fermeture de la connexion à la base de données
+                    conn.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int idRecherche = int.Parse(tb_Matricule.Text);
+
+            SqlCommand cmd = new SqlCommand("select * from etudiant where id_etu='" + idRecherche + "' ", conn);
+            conn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+
+                tb_Nom.Text = dr[1].ToString();
+                tb_Prenom.Text = dr[2].ToString();
+                dateTimePicker_DN.Text = dr[3].ToString();
+                tb_Classe.Text = dr[4].ToString();
+                tb_échéance_Fr.Text = dr[8].ToString();
+                N_UpDown_Fr.Value = int.Parse(dr[9].ToString());
+                label_Base_Fr.Text = dr[10].ToString();
+                label_Total_Fr.Text = dr[11].ToString();
+                label_Solde_Fr.Text = dr[12].ToString();
+                tb_échéance_Sc.Text = dr[13].ToString();
+                N_UpDown_Sc.Value = int.Parse(dr[14].ToString());
+                label_Base_Sc.Text = dr[15].ToString();
+                label_Total_Sc.Text = dr[16].ToString();
+                label_Solde_Sc.Text = dr[17].ToString();
+                tb_échéance_Tr.Text = dr[18].ToString();
+                N_UpDown_Tr.Value = int.Parse(dr[19].ToString());
+                label_Base_Tr.Text = dr[20].ToString();
+                label_Total_Tr.Text = dr[21].ToString();
+                label_Solde_Tr.Text = dr[22].ToString();
+                tb_échéance_ps1.Text = dr[23].ToString();
+
+                N_UpDown_Ps1.Value = int.Parse(dr[24].ToString());
+                label_Base_Ps1.Text = dr[25].ToString();
+                label_Total_Ps1.Text = dr[26].ToString();
+                label_Solde_Ps1.Text = dr[27].ToString();
+                tb_échéance_ps2.Text = dr[28].ToString();
+                N_UpDown_Ps2.Value = int.Parse(dr[29].ToString());
+                label_Base_Ps2.Text = dr[30].ToString();
+                label_Total_Ps2.Text = dr[31].ToString();
+                label_Solde_Ps2.Text = dr[32].ToString();
+                tb_échéance_ps3.Text = dr[33].ToString();
+                N_UpDown_Ps3.Value = int.Parse(dr[34].ToString());
+                label_Base_Ps3.Text = dr[35].ToString();
+                label_Total_Ps3.Text = dr[36].ToString();
+                label_Solde_Ps3.Text = dr[37].ToString();
+
+
+            }
+            dr.Close();
+            conn.Close();
+        }
+    }
+}
