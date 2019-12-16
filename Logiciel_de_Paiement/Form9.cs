@@ -405,6 +405,8 @@ namespace Logiciel_de_Paiement
                 {
                     for (int j = 0; j < dataGridView1.Columns.Count; j++)
                     {
+                        //gg
+                        //coment
                         ExcelADD.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
                     }
                 }
