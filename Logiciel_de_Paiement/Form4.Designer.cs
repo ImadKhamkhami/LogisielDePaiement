@@ -960,6 +960,7 @@
             this.label44.Size = new System.Drawing.Size(132, 32);
             this.label44.TabIndex = 111;
             this.label44.Text = "Virement";
+            this.label44.Click += new System.EventHandler(this.label44_Click);
             // 
             // label43
             // 

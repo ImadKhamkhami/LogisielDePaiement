@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form9));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker_Djeur = new System.Windows.Forms.DateTimePicker();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label_Ns_Arabe = new System.Windows.Forms.Label();
+            this.label_Nom_ecole = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -79,22 +83,35 @@
             this.dateVirementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bnqRemiseVrmDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalPayéDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paiementBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.logicielDePaiementDataSet5 = new Logiciel_de_Paiement.LogicielDePaiementDataSet5();
+            this.paiementBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.logicielDePaiementDataSet4 = new Logiciel_de_Paiement.LogicielDePaiementDataSet4();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog2 = new System.Windows.Forms.PrintPreviewDialog();
-            this.logicielDePaiementDataSet4 = new Logiciel_de_Paiement.LogicielDePaiementDataSet4();
-            this.paiementBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.paiementTableAdapter1 = new Logiciel_de_Paiement.LogicielDePaiementDataSet4TableAdapters.PaiementTableAdapter();
+            this.paiementTableAdapter = new Logiciel_de_Paiement.LogicielDePaiementDataSet5TableAdapters.PaiementTableAdapter();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logicielDePaiementDataSet4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paiementBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logicielDePaiementDataSet5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paiementBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logicielDePaiementDataSet4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox4);
+            this.groupBox1.Controls.Add(this.dateTimePicker_Djeur);
+            this.groupBox1.Controls.Add(this.pictureBox3);
+            this.groupBox1.Controls.Add(this.label_Ns_Arabe);
+            this.groupBox1.Controls.Add(this.label_Nom_ecole);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
@@ -105,6 +122,59 @@
             this.groupBox1.Size = new System.Drawing.Size(1346, 69);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
+            // 
+            // dateTimePicker_Djeur
+            // 
+            this.dateTimePicker_Djeur.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker_Djeur.Checked = false;
+            this.dateTimePicker_Djeur.Enabled = false;
+            this.dateTimePicker_Djeur.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker_Djeur.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_Djeur.Location = new System.Drawing.Point(315, 21);
+            this.dateTimePicker_Djeur.Name = "dateTimePicker_Djeur";
+            this.dateTimePicker_Djeur.Size = new System.Drawing.Size(155, 31);
+            this.dateTimePicker_Djeur.TabIndex = 115;
+            this.dateTimePicker_Djeur.Visible = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(272, 13);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(44, 48);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 114;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Visible = false;
+            // 
+            // label_Ns_Arabe
+            // 
+            this.label_Ns_Arabe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Ns_Arabe.AutoSize = true;
+            this.label_Ns_Arabe.Font = new System.Drawing.Font("Arabic Typesetting", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Ns_Arabe.ForeColor = System.Drawing.Color.White;
+            this.label_Ns_Arabe.Location = new System.Drawing.Point(147, 34);
+            this.label_Ns_Arabe.Name = "label_Ns_Arabe";
+            this.label_Ns_Arabe.Size = new System.Drawing.Size(78, 17);
+            this.label_Ns_Arabe.TabIndex = 113;
+            this.label_Ns_Arabe.Text = "مجموعة مدارس النور";
+            this.label_Ns_Arabe.Visible = false;
+            // 
+            // label_Nom_ecole
+            // 
+            this.label_Nom_ecole.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Nom_ecole.AutoSize = true;
+            this.label_Nom_ecole.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Nom_ecole.ForeColor = System.Drawing.Color.White;
+            this.label_Nom_ecole.Location = new System.Drawing.Point(102, 18);
+            this.label_Nom_ecole.Name = "label_Nom_ecole";
+            this.label_Nom_ecole.Size = new System.Drawing.Size(170, 16);
+            this.label_Nom_ecole.TabIndex = 112;
+            this.label_Nom_ecole.Text = "GROUPE SCOLAIRE ANNOUR";
+            this.label_Nom_ecole.Visible = false;
             // 
             // button4
             // 
@@ -353,12 +423,11 @@
             this.dateVirementDataGridViewTextBoxColumn,
             this.bnqRemiseVrmDataGridViewTextBoxColumn,
             this.totalPayéDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.paiementBindingSource1;
+            this.dataGridView1.DataSource = this.paiementBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.FilterAndSortEnabled = true;
             this.dataGridView1.Location = new System.Drawing.Point(0, 160);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1370, 589);
             this.dataGridView1.TabIndex = 102;
             this.dataGridView1.SortStringChanged += new System.EventHandler<Zuby.ADGV.AdvancedDataGridView.SortEventArgs>(this.dataGridView1_SortStringChanged);
@@ -371,7 +440,6 @@
             this.nReçuDataGridViewTextBoxColumn.HeaderText = "N_Reçu";
             this.nReçuDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.nReçuDataGridViewTextBoxColumn.Name = "nReçuDataGridViewTextBoxColumn";
-            this.nReçuDataGridViewTextBoxColumn.ReadOnly = true;
             this.nReçuDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // matriculeDataGridViewTextBoxColumn
@@ -380,7 +448,6 @@
             this.matriculeDataGridViewTextBoxColumn.HeaderText = "Matricule";
             this.matriculeDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.matriculeDataGridViewTextBoxColumn.Name = "matriculeDataGridViewTextBoxColumn";
-            this.matriculeDataGridViewTextBoxColumn.ReadOnly = true;
             this.matriculeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // nomCompletDataGridViewTextBoxColumn
@@ -389,7 +456,6 @@
             this.nomCompletDataGridViewTextBoxColumn.HeaderText = "Nom_Complet";
             this.nomCompletDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.nomCompletDataGridViewTextBoxColumn.Name = "nomCompletDataGridViewTextBoxColumn";
-            this.nomCompletDataGridViewTextBoxColumn.ReadOnly = true;
             this.nomCompletDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // classeDataGridViewTextBoxColumn
@@ -398,7 +464,6 @@
             this.classeDataGridViewTextBoxColumn.HeaderText = "classe";
             this.classeDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.classeDataGridViewTextBoxColumn.Name = "classeDataGridViewTextBoxColumn";
-            this.classeDataGridViewTextBoxColumn.ReadOnly = true;
             this.classeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // annéesScDataGridViewTextBoxColumn
@@ -407,7 +472,6 @@
             this.annéesScDataGridViewTextBoxColumn.HeaderText = "Années_Sc";
             this.annéesScDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.annéesScDataGridViewTextBoxColumn.Name = "annéesScDataGridViewTextBoxColumn";
-            this.annéesScDataGridViewTextBoxColumn.ReadOnly = true;
             this.annéesScDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // datePaiementDataGridViewTextBoxColumn
@@ -416,7 +480,6 @@
             this.datePaiementDataGridViewTextBoxColumn.HeaderText = "date_Paiement";
             this.datePaiementDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.datePaiementDataGridViewTextBoxColumn.Name = "datePaiementDataGridViewTextBoxColumn";
-            this.datePaiementDataGridViewTextBoxColumn.ReadOnly = true;
             this.datePaiementDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // nomUtlDataGridViewTextBoxColumn
@@ -425,7 +488,6 @@
             this.nomUtlDataGridViewTextBoxColumn.HeaderText = "Nom_Utl";
             this.nomUtlDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.nomUtlDataGridViewTextBoxColumn.Name = "nomUtlDataGridViewTextBoxColumn";
-            this.nomUtlDataGridViewTextBoxColumn.ReadOnly = true;
             this.nomUtlDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // detaileDataGridViewTextBoxColumn
@@ -434,7 +496,6 @@
             this.detaileDataGridViewTextBoxColumn.HeaderText = "Detaile";
             this.detaileDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.detaileDataGridViewTextBoxColumn.Name = "detaileDataGridViewTextBoxColumn";
-            this.detaileDataGridViewTextBoxColumn.ReadOnly = true;
             this.detaileDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // espècesDataGridViewTextBoxColumn
@@ -443,7 +504,6 @@
             this.espècesDataGridViewTextBoxColumn.HeaderText = "Espèces";
             this.espècesDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.espècesDataGridViewTextBoxColumn.Name = "espècesDataGridViewTextBoxColumn";
-            this.espècesDataGridViewTextBoxColumn.ReadOnly = true;
             this.espècesDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // dateVersEspècesDataGridViewTextBoxColumn
@@ -452,7 +512,6 @@
             this.dateVersEspècesDataGridViewTextBoxColumn.HeaderText = "date_Vers_Espèces";
             this.dateVersEspècesDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.dateVersEspècesDataGridViewTextBoxColumn.Name = "dateVersEspècesDataGridViewTextBoxColumn";
-            this.dateVersEspècesDataGridViewTextBoxColumn.ReadOnly = true;
             this.dateVersEspècesDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // chèqueDataGridViewTextBoxColumn
@@ -461,7 +520,6 @@
             this.chèqueDataGridViewTextBoxColumn.HeaderText = "chèque";
             this.chèqueDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.chèqueDataGridViewTextBoxColumn.Name = "chèqueDataGridViewTextBoxColumn";
-            this.chèqueDataGridViewTextBoxColumn.ReadOnly = true;
             this.chèqueDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // nchèqueDataGridViewTextBoxColumn
@@ -470,7 +528,6 @@
             this.nchèqueDataGridViewTextBoxColumn.HeaderText = "N_chèque";
             this.nchèqueDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.nchèqueDataGridViewTextBoxColumn.Name = "nchèqueDataGridViewTextBoxColumn";
-            this.nchèqueDataGridViewTextBoxColumn.ReadOnly = true;
             this.nchèqueDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // dateéchchèqDataGridViewTextBoxColumn
@@ -479,7 +536,6 @@
             this.dateéchchèqDataGridViewTextBoxColumn.HeaderText = "date_éch_chèq";
             this.dateéchchèqDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.dateéchchèqDataGridViewTextBoxColumn.Name = "dateéchchèqDataGridViewTextBoxColumn";
-            this.dateéchchèqDataGridViewTextBoxColumn.ReadOnly = true;
             this.dateéchchèqDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // dateRemisechèqDataGridViewTextBoxColumn
@@ -488,7 +544,6 @@
             this.dateRemisechèqDataGridViewTextBoxColumn.HeaderText = "date_Remise_chèq";
             this.dateRemisechèqDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.dateRemisechèqDataGridViewTextBoxColumn.Name = "dateRemisechèqDataGridViewTextBoxColumn";
-            this.dateRemisechèqDataGridViewTextBoxColumn.ReadOnly = true;
             this.dateRemisechèqDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // bnqRemisechèqDataGridViewTextBoxColumn
@@ -497,7 +552,6 @@
             this.bnqRemisechèqDataGridViewTextBoxColumn.HeaderText = "Bnq_Remise_chèq";
             this.bnqRemisechèqDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.bnqRemisechèqDataGridViewTextBoxColumn.Name = "bnqRemisechèqDataGridViewTextBoxColumn";
-            this.bnqRemisechèqDataGridViewTextBoxColumn.ReadOnly = true;
             this.bnqRemisechèqDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // sortChèqueDataGridViewTextBoxColumn
@@ -506,7 +560,6 @@
             this.sortChèqueDataGridViewTextBoxColumn.HeaderText = "sort_Chèque";
             this.sortChèqueDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.sortChèqueDataGridViewTextBoxColumn.Name = "sortChèqueDataGridViewTextBoxColumn";
-            this.sortChèqueDataGridViewTextBoxColumn.ReadOnly = true;
             this.sortChèqueDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // dateCreditchèqDataGridViewTextBoxColumn
@@ -515,7 +568,6 @@
             this.dateCreditchèqDataGridViewTextBoxColumn.HeaderText = "date_Credit_chèq";
             this.dateCreditchèqDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.dateCreditchèqDataGridViewTextBoxColumn.Name = "dateCreditchèqDataGridViewTextBoxColumn";
-            this.dateCreditchèqDataGridViewTextBoxColumn.ReadOnly = true;
             this.dateCreditchèqDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // traiteDataGridViewTextBoxColumn
@@ -524,7 +576,6 @@
             this.traiteDataGridViewTextBoxColumn.HeaderText = "Traite";
             this.traiteDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.traiteDataGridViewTextBoxColumn.Name = "traiteDataGridViewTextBoxColumn";
-            this.traiteDataGridViewTextBoxColumn.ReadOnly = true;
             this.traiteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // nTraiteDataGridViewTextBoxColumn
@@ -533,7 +584,6 @@
             this.nTraiteDataGridViewTextBoxColumn.HeaderText = "N_Traite";
             this.nTraiteDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.nTraiteDataGridViewTextBoxColumn.Name = "nTraiteDataGridViewTextBoxColumn";
-            this.nTraiteDataGridViewTextBoxColumn.ReadOnly = true;
             this.nTraiteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // dateéchTrtDataGridViewTextBoxColumn
@@ -542,7 +592,6 @@
             this.dateéchTrtDataGridViewTextBoxColumn.HeaderText = "date_éch_Trt";
             this.dateéchTrtDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.dateéchTrtDataGridViewTextBoxColumn.Name = "dateéchTrtDataGridViewTextBoxColumn";
-            this.dateéchTrtDataGridViewTextBoxColumn.ReadOnly = true;
             this.dateéchTrtDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // dateRemiseTrtDataGridViewTextBoxColumn
@@ -551,7 +600,6 @@
             this.dateRemiseTrtDataGridViewTextBoxColumn.HeaderText = "date_Remise_Trt";
             this.dateRemiseTrtDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.dateRemiseTrtDataGridViewTextBoxColumn.Name = "dateRemiseTrtDataGridViewTextBoxColumn";
-            this.dateRemiseTrtDataGridViewTextBoxColumn.ReadOnly = true;
             this.dateRemiseTrtDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // bnqRemiseTrtDataGridViewTextBoxColumn
@@ -560,7 +608,6 @@
             this.bnqRemiseTrtDataGridViewTextBoxColumn.HeaderText = "Bnq_Remise_Trt";
             this.bnqRemiseTrtDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.bnqRemiseTrtDataGridViewTextBoxColumn.Name = "bnqRemiseTrtDataGridViewTextBoxColumn";
-            this.bnqRemiseTrtDataGridViewTextBoxColumn.ReadOnly = true;
             this.bnqRemiseTrtDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // sortTraiteDataGridViewTextBoxColumn
@@ -569,7 +616,6 @@
             this.sortTraiteDataGridViewTextBoxColumn.HeaderText = "sort_Traite";
             this.sortTraiteDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.sortTraiteDataGridViewTextBoxColumn.Name = "sortTraiteDataGridViewTextBoxColumn";
-            this.sortTraiteDataGridViewTextBoxColumn.ReadOnly = true;
             this.sortTraiteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // dateCreditTrtDataGridViewTextBoxColumn
@@ -578,7 +624,6 @@
             this.dateCreditTrtDataGridViewTextBoxColumn.HeaderText = "date_Credit_Trt";
             this.dateCreditTrtDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.dateCreditTrtDataGridViewTextBoxColumn.Name = "dateCreditTrtDataGridViewTextBoxColumn";
-            this.dateCreditTrtDataGridViewTextBoxColumn.ReadOnly = true;
             this.dateCreditTrtDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // virementDataGridViewTextBoxColumn
@@ -587,7 +632,6 @@
             this.virementDataGridViewTextBoxColumn.HeaderText = "Virement";
             this.virementDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.virementDataGridViewTextBoxColumn.Name = "virementDataGridViewTextBoxColumn";
-            this.virementDataGridViewTextBoxColumn.ReadOnly = true;
             this.virementDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // dateVirementDataGridViewTextBoxColumn
@@ -596,7 +640,6 @@
             this.dateVirementDataGridViewTextBoxColumn.HeaderText = "date_Virement";
             this.dateVirementDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.dateVirementDataGridViewTextBoxColumn.Name = "dateVirementDataGridViewTextBoxColumn";
-            this.dateVirementDataGridViewTextBoxColumn.ReadOnly = true;
             this.dateVirementDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // bnqRemiseVrmDataGridViewTextBoxColumn
@@ -605,7 +648,6 @@
             this.bnqRemiseVrmDataGridViewTextBoxColumn.HeaderText = "Bnq_Remise_Vrm";
             this.bnqRemiseVrmDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.bnqRemiseVrmDataGridViewTextBoxColumn.Name = "bnqRemiseVrmDataGridViewTextBoxColumn";
-            this.bnqRemiseVrmDataGridViewTextBoxColumn.ReadOnly = true;
             this.bnqRemiseVrmDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // totalPayéDataGridViewTextBoxColumn
@@ -614,8 +656,27 @@
             this.totalPayéDataGridViewTextBoxColumn.HeaderText = "TotalPayé";
             this.totalPayéDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.totalPayéDataGridViewTextBoxColumn.Name = "totalPayéDataGridViewTextBoxColumn";
-            this.totalPayéDataGridViewTextBoxColumn.ReadOnly = true;
             this.totalPayéDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // paiementBindingSource
+            // 
+            this.paiementBindingSource.DataMember = "Paiement";
+            this.paiementBindingSource.DataSource = this.logicielDePaiementDataSet5;
+            // 
+            // logicielDePaiementDataSet5
+            // 
+            this.logicielDePaiementDataSet5.DataSetName = "LogicielDePaiementDataSet5";
+            this.logicielDePaiementDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // paiementBindingSource1
+            // 
+            this.paiementBindingSource1.DataMember = "Paiement";
+            this.paiementBindingSource1.DataSource = this.logicielDePaiementDataSet4;
+            // 
+            // logicielDePaiementDataSet4
+            // 
+            this.logicielDePaiementDataSet4.DataSetName = "LogicielDePaiementDataSet4";
+            this.logicielDePaiementDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // printDocument2
             // 
@@ -632,19 +693,24 @@
             this.printPreviewDialog2.Name = "printPreviewDialog2";
             this.printPreviewDialog2.Visible = false;
             // 
-            // logicielDePaiementDataSet4
-            // 
-            this.logicielDePaiementDataSet4.DataSetName = "LogicielDePaiementDataSet4";
-            this.logicielDePaiementDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // paiementBindingSource1
-            // 
-            this.paiementBindingSource1.DataMember = "Paiement";
-            this.paiementBindingSource1.DataSource = this.logicielDePaiementDataSet4;
-            // 
             // paiementTableAdapter1
             // 
             this.paiementTableAdapter1.ClearBeforeFill = true;
+            // 
+            // paiementTableAdapter
+            // 
+            this.paiementTableAdapter.ClearBeforeFill = true;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(470, 12);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(41, 48);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 116;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Visible = false;
             // 
             // Form9
             // 
@@ -659,13 +725,18 @@
             this.Name = "Form9";
             this.Load += new System.EventHandler(this.Form9_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logicielDePaiementDataSet4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paiementBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logicielDePaiementDataSet5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paiementBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logicielDePaiementDataSet4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -726,5 +797,13 @@
         private LogicielDePaiementDataSet4 logicielDePaiementDataSet4;
         private System.Windows.Forms.BindingSource paiementBindingSource1;
         private LogicielDePaiementDataSet4TableAdapters.PaiementTableAdapter paiementTableAdapter1;
+        private LogicielDePaiementDataSet5 logicielDePaiementDataSet5;
+        private System.Windows.Forms.BindingSource paiementBindingSource;
+        private LogicielDePaiementDataSet5TableAdapters.PaiementTableAdapter paiementTableAdapter;
+        private System.Windows.Forms.Label label_Nom_ecole;
+        private System.Windows.Forms.Label label_Ns_Arabe;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_Djeur;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

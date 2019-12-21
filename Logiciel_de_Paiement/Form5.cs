@@ -60,7 +60,7 @@ namespace Logiciel_de_Paiement
 
         private void detaileEtudianteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form8 f8 = new Form8();
+            Form8 f8 = new Form8(dt);
             f8.Show();
             this.Hide();
         }

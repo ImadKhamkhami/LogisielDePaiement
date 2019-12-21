@@ -625,22 +625,18 @@ namespace Logiciel_de_Paiement
                 cmd.Parameters.AddWithValue("p6", dateTimePicker_Djeur.Value);
                 cmd.Parameters.AddWithValue("p7", label60.Text);
                 cmd.Parameters.AddWithValue("p8", textBox_Commantaire.Text);
-                double P_Es = double.Parse(label_pyEspeces.Text);
-                double P_ch = double.Parse(label_pyCheque.Text);
-                double P_Tr = double.Parse(label_pyTraite.Text);
-                double P_Vm = double.Parse(label_pyVirement.Text);
-                cmd.Parameters.AddWithValue("p9", P_Es);
-                cmd.Parameters.AddWithValue("p10", dateTimePicker_Es.Value);
-                cmd.Parameters.AddWithValue("p11", P_ch);
+                cmd.Parameters.AddWithValue("p9", Convert.ToDouble(label_pyEspeces.Text));
+                cmd.Parameters.AddWithValue("p10", dateTimePicker_Es.Value.ToString("dd/MM/yyyy"));
+                cmd.Parameters.AddWithValue("p11", Convert.ToDouble(label_pyCheque.Text));
                 cmd.Parameters.AddWithValue("p12", tb_Ncheque_Ch.Text);
                 cmd.Parameters.AddWithValue("p13", dateTimePicker_Ch.Value);
-                cmd.Parameters.AddWithValue("p18", P_Tr);
+                cmd.Parameters.AddWithValue("p18", Convert.ToDouble(label_pyTraite.Text));
                 cmd.Parameters.AddWithValue("p19", tb_Ncheque_Tr.Text);
                 cmd.Parameters.AddWithValue("p20", dateTimePicker_Tr.Value);
-                cmd.Parameters.AddWithValue("p25", P_Vm);
+                cmd.Parameters.AddWithValue("p25", Convert.ToDouble(label_pyVirement.Text));
                 cmd.Parameters.AddWithValue("p26", dateTimePicker_Vm.Value);
                 cmd.Parameters.AddWithValue("p27", dateTimePicker_Vm.Value);
-                cmd.Parameters.AddWithValue("p28", label_TotalPaye.Text);
+                cmd.Parameters.AddWithValue("p28", Convert.ToDouble(label_TotalPaye.Text));
                 cmd.ExecuteNonQuery();
                 SqlCommand sqlcmd = new SqlCommand("select Total_Fr,Solde_Fr,Total_Sc,Solde_Sc,Total_Tr,Solde_Tr,Total_Ps1 ,Solde_Ps1 ,Total_Ps2,Solde_Ps2,Total_Ps3,Solde_Ps3   from Detaile where Matricule = @mtr", conn);
                 sqlcmd.Parameters.AddWithValue("@mtr", TextBox_Matricule.Text);
@@ -700,6 +696,29 @@ namespace Logiciel_de_Paiement
                 cmdupdte.Parameters.AddWithValue("@mtr", TextBox_Matricule.Text);
                 cmdupdte.ExecuteNonQuery();
 
+                SqlCommand cmdDp = new SqlCommand("insert into DetailePaiement values(@N_Reçu,@soldeav_Fr,@soldeav_Sc,@soldeav_Tr,@soldeav_Ps1,@soldeav_Ps2,@soldeav_Ps3,@TotalPy_Fr,@TotalPy_Sc,@TotalPy_Tr,@TotalPy_Ps1,@TotalPy_Ps2,@TotalPy_Ps3,@soldeap_Fr,@soldeap_Sc,@soldeap_Tr,@soldeap_Ps1,@soldeap_Ps2,@soldeap_Ps3)",conn);
+                cmdDp.Parameters.AddWithValue("N_Reçu", numF);
+                cmdDp.Parameters.AddWithValue("soldeav_Fr", Convert.ToDouble(label_Savp_Fr.Text));
+                cmdDp.Parameters.AddWithValue("soldeav_Sc", Convert.ToDouble(label_Savp_Sc.Text));
+                cmdDp.Parameters.AddWithValue("soldeav_Tr", Convert.ToDouble(label_Savp_Tr.Text));
+                cmdDp.Parameters.AddWithValue("soldeav_Ps1", Convert.ToDouble(label_Savp_Ps1.Text));
+                cmdDp.Parameters.AddWithValue("soldeav_Ps2", Convert.ToDouble(label_Savp_Ps2.Text));
+                cmdDp.Parameters.AddWithValue("soldeav_Ps3", Convert.ToDouble(label_Savp_Ps3.Text));
+                ///////////////////////////////////////////////////////////////////
+                cmdDp.Parameters.AddWithValue("TotalPy_Fr", Convert.ToDouble(label_Totpy_Fr.Text));
+                cmdDp.Parameters.AddWithValue("TotalPy_Sc", Convert.ToDouble(label_Totpy_Sc.Text));
+                cmdDp.Parameters.AddWithValue("TotalPy_Tr", Convert.ToDouble(label_Totpy_Tr.Text));
+                cmdDp.Parameters.AddWithValue("TotalPy_Ps1", Convert.ToDouble(label_Totpy_Ps1.Text));
+                cmdDp.Parameters.AddWithValue("TotalPy_Ps2", Convert.ToDouble(label_Totpy_Ps2.Text));
+                cmdDp.Parameters.AddWithValue("TotalPy_Ps3", Convert.ToDouble(label_Totpy_Ps3.Text));
+                /////////////////////////////////////////////////////////////////////
+                cmdDp.Parameters.AddWithValue("soldeap_Fr", Convert.ToDouble(label_Sapp_Fr.Text));
+                cmdDp.Parameters.AddWithValue("soldeap_Sc", Convert.ToDouble(label_Sapp_Sc.Text));
+                cmdDp.Parameters.AddWithValue("soldeap_Tr", Convert.ToDouble(label_Sapp_Tr.Text));
+                cmdDp.Parameters.AddWithValue("soldeap_Ps1", Convert.ToDouble(label_Sapp_Ps1.Text));
+                cmdDp.Parameters.AddWithValue("soldeap_Ps2", Convert.ToDouble(label_Sapp_Ps2.Text));
+                cmdDp.Parameters.AddWithValue("soldeap_Ps3", Convert.ToDouble(label_Sapp_Ps3.Text));
+                cmdDp.ExecuteNonQuery();
                 MessageBox.Show("Paiement Valider");
                 conn.Close();
             }
@@ -1537,6 +1556,11 @@ namespace Logiciel_de_Paiement
                 tb_Especes_Fr.Text = "";
                 tb_Especes_Fr.ForeColor = Color.Black;
             }
+        }
+
+        private void label44_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

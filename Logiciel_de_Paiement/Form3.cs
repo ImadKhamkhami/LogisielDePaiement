@@ -37,7 +37,7 @@ namespace Logiciel_de_Paiement
             label39.Text = Form1.username;
             //printDocument1.DefaultPageSettings.PaperSize = new PaperSize("Mypaper", this.Height - 54, this.Width-215);
             //printDocument1.DefaultPageSettings.Landscape = true;
-            
+            fillCombo();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -80,6 +80,21 @@ namespace Logiciel_de_Paiement
         private void label_UserName1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void fillCombo()
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("select * from annesScolaire",conn);
+            SqlDataReader rd = cmd.ExecuteReader();
+            DataTable src = new DataTable();
+            comboBox_An.Items.Clear();
+            while (rd.Read())
+            {
+                comboBox_An.Items.Add(rd[0]);
+            }
+            comboBox_An.SelectedIndex = 0;
+            conn.Close();
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -239,7 +254,7 @@ namespace Logiciel_de_Paiement
 
         }
 
-        private static int dtCacule(string dtIns,double totpy,double ech)
+        public static int dtCaculeTr(string dtIns,double totpy,double ech)
         {
             String dtNow = DateTime.Now.ToString("dd/MM/yyyy");
 
@@ -266,8 +281,7 @@ namespace Logiciel_de_Paiement
         {
             try
             {
-                if (N_UpDown_Fr.Value == 0)
-                    N_UpDown_Fr.Value = 1;
+                
                 double F = double.Parse(tb_échéance_Fr.Text);
                 int R = (int)N_UpDown_Fr.Value;
                 double TotalFrais = (F * R);
@@ -285,8 +299,8 @@ namespace Logiciel_de_Paiement
         {
             try
             {
-                if (N_UpDown_Sc.Value == 0)
-                    N_UpDown_Sc.Value = 1;
+                //if (N_UpDown_Sc.Value == 0)
+                //    return;
                 double S = double.Parse(tb_échéance_Sc.Text);
                 int C = (int)N_UpDown_Sc.Value;
                 double TotalScol = (S * C);
@@ -304,8 +318,7 @@ namespace Logiciel_de_Paiement
         {
             try
             {
-                if (N_UpDown_Tr.Value == 0)
-                    N_UpDown_Tr.Value = 1;
+             
                 double T = double.Parse(tb_échéance_Tr.Text);
                 int u = (int)N_UpDown_Tr.Value;
                 double TotalTrans = (T * u);
@@ -321,8 +334,7 @@ namespace Logiciel_de_Paiement
         {
             try
             {
-                if (N_UpDown_Ps1.Value == 0)
-                    N_UpDown_Ps1.Value = 1;
+               
                 double P = double.Parse(tb_échéance_ps1.Text);
                 int k = (int)N_UpDown_Ps1.Value;
                 double TotalPS1 = (P * k);
@@ -338,8 +350,7 @@ namespace Logiciel_de_Paiement
         {
             try
             {
-                if (N_UpDown_Ps2.Value == 0)
-                    N_UpDown_Ps2.Value = 1;
+                
                 double m = double.Parse(tb_échéance_ps2.Text);
                 int n = (int)N_UpDown_Ps2.Value;
                 double TotalPS2 = (m * n);
@@ -357,8 +368,7 @@ namespace Logiciel_de_Paiement
         {
             try
             {
-                if (N_UpDown_Ps3.Value == 0)
-                    N_UpDown_Ps3.Value = 1;
+                
                 double l = double.Parse(tb_échéance_ps3.Text);
                 int d = (int)N_UpDown_Ps3.Value;
                 double TotalPS3 = (l * d);
@@ -412,42 +422,64 @@ namespace Logiciel_de_Paiement
             }
             else
             {
+                tb_échéance_Fr.ForeColor = Color.White;
+                tb_échéance_Sc.ForeColor = Color.White;
+                tb_échéance_Tr.ForeColor = Color.White;
+                tb_échéance_ps1.ForeColor = Color.White;
+                tb_échéance_ps2.ForeColor = Color.White;
+                tb_échéance_ps3.ForeColor = Color.White;
+
+
+
                 tb_Matricule.Text = "";
                 tb_Nom.Text = "";
                 tb_Prenom.Text = "";
                 dateTimePicker_DN.Value = DateTime.Today;
                 tb_Classe.Text = "";
                 textBox_Mobile.Text = "";
-                tb_échéance_Fr.Text = "";
+
+                tb_échéance_Fr.Text = "0";
                 N_UpDown_Fr.Value = 1;
-                label_Base_Fr.Text = "";
+                label_Base_Fr.Text = "0";
                 label_Total_Fr.Text = "0";
-                label_Solde_Fr.Text = "";
-                tb_échéance_Sc.Text = "";
+                label_Solde_Fr.Text = "0";
+
+
+                tb_échéance_Sc.Text = "0";
                 N_UpDown_Sc.Value = 1;
-                label_Base_Sc.Text = "";
+                label_Base_Sc.Text = "0";
                 label_Total_Sc.Text = "0";
-                label_Solde_Sc.Text = "";
-                tb_échéance_Tr.Text = "";
+                label_Solde_Sc.Text = "0";
+
+
+                tb_échéance_Tr.Text = "0";
                 N_UpDown_Tr.Value = 1;
-                label_Base_Tr.Text = "";
+                label_Base_Tr.Text = "0";
                 label_Total_Tr.Text = "0";
-                label_Solde_Tr.Text = "";
-                tb_échéance_ps1.Text = "";
+                label_Solde_Tr.Text = "0";
+
+
+                tb_échéance_ps1.Text = "0";
                 N_UpDown_Ps1.Value = 1;
-                label_Base_Ps1.Text = "";
+                label_Base_Ps1.Text = "0";
                 label_Total_Ps1.Text = "0";
-                label_Solde_Ps1.Text = "";
-                tb_échéance_ps2.Text = "";
+                label_Solde_Ps1.Text = "0";
+
+
+                tb_échéance_ps2.Text = "0";
                 N_UpDown_Ps2.Value = 1;
-                label_Base_Ps2.Text = "";
+                label_Base_Ps2.Text = "0";
                 label_Total_Ps2.Text = "0";
-                label_Solde_Ps2.Text = "";
-                tb_échéance_ps3.Text = "";
+                label_Solde_Ps2.Text = "0";
+
+
+                tb_échéance_ps3.Text = "0";
                 N_UpDown_Ps3.Value = 1;
-                label_Base_Ps3.Text = "";
+                label_Base_Ps3.Text = "0";
                 label_Total_Ps3.Text = "0";
-                label_Solde_Ps3.Text = "";
+                label_Solde_Ps3.Text = "0";
+
+
                 label_eche_NP_Fr.Text = "0";
                 label_eche_NP_Sc.Text = "0";
                 label_eche_NP_Tr.Text = "0";
@@ -499,52 +531,62 @@ namespace Logiciel_de_Paiement
                 SqlCommand cmmmd = new SqlCommand(Sqqql, conn);
                 //parametre de Frais
 
-                cmmmd.Parameters.AddWithValue("p1", tb_Matricule.Text);
+                try
+                {
+                    cmmmd.Parameters.AddWithValue("p1", tb_Matricule.Text);
 
-                cmmmd.Parameters.AddWithValue("p2", tb_échéance_Fr.Text);
-                cmmmd.Parameters.AddWithValue("p3", N_UpDown_Fr.Value);
-                cmmmd.Parameters.AddWithValue("p4", label_Base_Fr.Text);
-                cmmmd.Parameters.AddWithValue("p5", label_Total_Fr.Text);
-                cmmmd.Parameters.AddWithValue("p6", label_Solde_Fr.Text);
-                cmmmd.Parameters.AddWithValue("p7", label_eche_NP_Fr.Text);
-                //parametre de Scolaire
-                cmmmd.Parameters.AddWithValue("p8", tb_échéance_Sc.Text);
-                cmmmd.Parameters.AddWithValue("p9", N_UpDown_Sc.Text);
-                cmmmd.Parameters.AddWithValue("p10", label_Base_Sc.Text);
-                cmmmd.Parameters.AddWithValue("p11", label_Total_Sc.Text);
-                cmmmd.Parameters.AddWithValue("p12", label_Solde_Sc.Text);
-                cmmmd.Parameters.AddWithValue("p13", label_eche_NP_Sc.Text);
-                //parametre de Transport
-                cmmmd.Parameters.AddWithValue("p14", Convert.ToDouble(tb_échéance_Tr.Text));
-                cmmmd.Parameters.AddWithValue("p15", N_UpDown_Tr.Text);
-                cmmmd.Parameters.AddWithValue("p16", Convert.ToDouble(label_Base_Tr.Text));
-                cmmmd.Parameters.AddWithValue("p17", Convert.ToDouble(label_Total_Tr.Text));
-                cmmmd.Parameters.AddWithValue("p18", Convert.ToDouble(label_Solde_Tr.Text));
-                cmmmd.Parameters.AddWithValue("p19", label_eche_NP_Tr.Text);
-                //parametre de prestation1
-                cmmmd.Parameters.AddWithValue("p20", tb_échéance_ps1.Text);
-                cmmmd.Parameters.AddWithValue("p21", N_UpDown_Ps1.Text);
-                cmmmd.Parameters.AddWithValue("p22", label_Base_Ps1.Text);
-                cmmmd.Parameters.AddWithValue("p23", label_Total_Ps1.Text);
-                cmmmd.Parameters.AddWithValue("p24", label_Solde_Ps1.Text);
-                cmmmd.Parameters.AddWithValue("p25", label_eche_NP_Ps1.Text);
-                //parametre de prestation2
-                cmmmd.Parameters.AddWithValue("p26", tb_échéance_ps2.Text);
-                cmmmd.Parameters.AddWithValue("p27", N_UpDown_Ps2.Text);
-                cmmmd.Parameters.AddWithValue("p28", label_Base_Ps2.Text);
-                cmmmd.Parameters.AddWithValue("p29", label_Total_Ps2.Text);
-                cmmmd.Parameters.AddWithValue("p30", label_Solde_Ps2.Text);
-                cmmmd.Parameters.AddWithValue("p31", label_eche_NP_Ps2.Text);
-                //parametre de prestation3
-                cmmmd.Parameters.AddWithValue("p32", tb_échéance_ps3.Text);
-                cmmmd.Parameters.AddWithValue("p33", N_UpDown_Ps3.Text);
-                cmmmd.Parameters.AddWithValue("p34", label_Base_Ps3.Text);
-                cmmmd.Parameters.AddWithValue("p35", label_Total_Ps3.Text);
-                cmmmd.Parameters.AddWithValue("p36", label_Solde_Ps3.Text);
-                cmmmd.Parameters.AddWithValue("p37", label_eche_NP_Ps3.Text);
-                cmmmd.ExecuteNonQuery();
-                MessageBox.Show("etudiant Ajouter");
+                    cmmmd.Parameters.AddWithValue("p2", Convert.ToDouble(tb_échéance_Fr.Text));
+                    cmmmd.Parameters.AddWithValue("p3", N_UpDown_Fr.Value);
+                    cmmmd.Parameters.AddWithValue("p4", Convert.ToDouble(label_Base_Fr.Text));
+                    cmmmd.Parameters.AddWithValue("p5", Convert.ToDouble(label_Total_Fr.Text));
+                    cmmmd.Parameters.AddWithValue("p6", Convert.ToDouble(label_Solde_Fr.Text));
+                    cmmmd.Parameters.AddWithValue("p7", label_eche_NP_Fr.Text);
+                    //parametre de Scolaire
+                    cmmmd.Parameters.AddWithValue("p8", Convert.ToDouble(tb_échéance_Sc.Text));
+                    cmmmd.Parameters.AddWithValue("p9", N_UpDown_Sc.Text);
+                    cmmmd.Parameters.AddWithValue("p10", Convert.ToDouble(label_Base_Sc.Text));
+                    cmmmd.Parameters.AddWithValue("p11", Convert.ToDouble(label_Total_Sc.Text));
+                    cmmmd.Parameters.AddWithValue("p12", Convert.ToDouble(label_Solde_Sc.Text));
+                    cmmmd.Parameters.AddWithValue("p13", label_eche_NP_Sc.Text);
+                    //parametre de Transport
+                    cmmmd.Parameters.AddWithValue("p14", Convert.ToDouble(tb_échéance_Tr.Text));
+                    cmmmd.Parameters.AddWithValue("p15", N_UpDown_Tr.Text);
+                    cmmmd.Parameters.AddWithValue("p16", Convert.ToDouble(label_Base_Tr.Text));
+                    cmmmd.Parameters.AddWithValue("p17", Convert.ToDouble(label_Total_Tr.Text));
+                    cmmmd.Parameters.AddWithValue("p18", Convert.ToDouble(label_Solde_Tr.Text));
+                    cmmmd.Parameters.AddWithValue("p19", label_eche_NP_Tr.Text);
+                    //parametre de prestation1
+                    cmmmd.Parameters.AddWithValue("p20", Convert.ToDouble(tb_échéance_ps1.Text));
+                    cmmmd.Parameters.AddWithValue("p21", N_UpDown_Ps1.Text);
+                    cmmmd.Parameters.AddWithValue("p22", Convert.ToDouble(label_Base_Ps1.Text));
+                    cmmmd.Parameters.AddWithValue("p23", Convert.ToDouble(label_Total_Ps1.Text));
+                    cmmmd.Parameters.AddWithValue("p24", Convert.ToDouble(label_Solde_Ps1.Text));
+                    cmmmd.Parameters.AddWithValue("p25", label_eche_NP_Ps1.Text);
+                    //parametre de prestation2
+                    cmmmd.Parameters.AddWithValue("p26", Convert.ToDouble(tb_échéance_ps2.Text));
+                    cmmmd.Parameters.AddWithValue("p27", N_UpDown_Ps2.Text);
+                    cmmmd.Parameters.AddWithValue("p28", Convert.ToDouble(label_Base_Ps2.Text));
+                    cmmmd.Parameters.AddWithValue("p29", Convert.ToDouble(label_Total_Ps2.Text));
+                    cmmmd.Parameters.AddWithValue("p30", Convert.ToDouble(label_Solde_Ps2.Text));
+                    cmmmd.Parameters.AddWithValue("p31", label_eche_NP_Ps2.Text);
+                    //parametre de prestation3
+                    cmmmd.Parameters.AddWithValue("p32", Convert.ToDouble(tb_échéance_ps3.Text));
+                    cmmmd.Parameters.AddWithValue("p33", N_UpDown_Ps3.Text);
+                    cmmmd.Parameters.AddWithValue("p34", Convert.ToDouble(label_Base_Ps3.Text));
+                    cmmmd.Parameters.AddWithValue("p35", Convert.ToDouble(label_Total_Ps3.Text));
+                    cmmmd.Parameters.AddWithValue("p36", Convert.ToDouble(label_Solde_Ps3.Text));
+                    cmmmd.Parameters.AddWithValue("p37", label_eche_NP_Ps3.Text);
+                    cmmmd.ExecuteNonQuery();
+                    MessageBox.Show("etudiant Ajouter");
+                }catch(Exception ex)
+                {
+                    SqlCommand deleteCmd = new SqlCommand("delete etudiant where Matricule =" + tb_Matricule.Text, conn);
+                    deleteCmd.ExecuteNonQuery();
+                    MessageBox.Show("error");
+
+                }
                 conn.Close();
+                
             }
             //}
             //catch (Exception ex)
@@ -625,7 +667,7 @@ namespace Logiciel_de_Paiement
 
                 }
                 string dtInsStr = dtIns.Date.ToString("dd/MM/yyyy");
-                dtInsStr += " 12:11:11";
+             
                 ddr.Close();
                 cmd.Dispose();
                 SqlDataReader dr = cmmd.ExecuteReader();
@@ -638,8 +680,8 @@ namespace Logiciel_de_Paiement
                     tb_échéance_ps2.ForeColor = Color.Black;
                     tb_échéance_ps3.ForeColor = Color.Black;
 
-                   double d1 = double .Parse(dr[1].ToString());
-                    tb_échéance_Fr.Text = String.Format("{0:0.00}",d1);
+                    double d1 = double.Parse(dr[1].ToString());
+                    tb_échéance_Fr.Text = String.Format("{0:0.00}", d1);
                     N_UpDown_Fr.Value = int.Parse(dr[2].ToString());
                     label_Base_Fr.Text = String.Format("{0:0.00}", dr[3]);
                     label_Total_Fr.Text = String.Format("{0:0.00}", dr[4]);
@@ -647,7 +689,7 @@ namespace Logiciel_de_Paiement
                     label_eche_NP_Fr.Text = dr[6].ToString();
 
                     double d7 = double.Parse(dr[7].ToString());
-                    tb_échéance_Sc.Text = String.Format("{0:0.00}",d7);
+                    tb_échéance_Sc.Text = String.Format("{0:0.00}", d7);
                     N_UpDown_Sc.Value = int.Parse(dr[8].ToString());
                     label_Base_Sc.Text = String.Format("{0:0.00}", dr[9]);
                     label_Total_Sc.Text = String.Format("{0:0.00}", dr[10]);
@@ -655,7 +697,7 @@ namespace Logiciel_de_Paiement
                     label_eche_NP_Sc.Text = dr[12].ToString();
 
                     double d13 = double.Parse(dr[13].ToString());
-                    tb_échéance_Tr.Text = String.Format("{0:0.00}",d13);
+                    tb_échéance_Tr.Text = String.Format("{0:0.00}", d13);
                     N_UpDown_Tr.Value = int.Parse(dr[14].ToString());
                     label_Base_Tr.Text = String.Format("{0:0.00}", dr[15]);
                     label_Total_Tr.Text = String.Format("{0:0.00}", dr[16]);
@@ -663,7 +705,7 @@ namespace Logiciel_de_Paiement
                     label_eche_NP_Tr.Text = dr[18].ToString();
 
                     double d19 = double.Parse(dr[19].ToString());
-                    tb_échéance_ps1.Text = String.Format("{0:0.00}",d19);
+                    tb_échéance_ps1.Text = String.Format("{0:0.00}", d19);
                     N_UpDown_Ps1.Value = int.Parse(dr[20].ToString());
                     label_Base_Ps1.Text = String.Format("{0:0.00}", dr[21]);
                     label_Total_Ps1.Text = String.Format("{0:0.00}", dr[22]);
@@ -671,7 +713,7 @@ namespace Logiciel_de_Paiement
                     label_eche_NP_Ps1.Text = dr[24].ToString();
 
                     double d25 = double.Parse(dr[25].ToString());
-                    tb_échéance_ps2.Text = String.Format("{0:0.00}",d25);
+                    tb_échéance_ps2.Text = String.Format("{0:0.00}", d25);
                     N_UpDown_Ps2.Value = int.Parse(dr[26].ToString());
                     label_Base_Ps2.Text = String.Format("{0:0.00}", dr[27]);
                     label_Total_Ps2.Text = String.Format("{0:0.00}", dr[28]);
@@ -679,7 +721,7 @@ namespace Logiciel_de_Paiement
                     label_eche_NP_Ps2.Text = dr[30].ToString();
 
                     double d31 = double.Parse(dr[31].ToString());
-                    tb_échéance_ps3.Text = String.Format("{0:0.00}",d31);
+                    tb_échéance_ps3.Text = String.Format("{0:0.00}", d31);
                     N_UpDown_Ps3.Value = int.Parse(dr[32].ToString());
                     label_Base_Ps3.Text = String.Format("{0:0.00}", dr[33]);
                     label_Total_Ps3.Text = String.Format("{0:0.00}", dr[34]);
@@ -692,45 +734,45 @@ namespace Logiciel_de_Paiement
 
                     //Méthode CalculeMoi
                     //Fr
-                    double PFR = PursontageFr(Convert.ToDouble(dr[1]),Convert.ToDouble(dr[4]));
-                    label_eche_NP_Fr.Text = PFR.ToString()+"%";
+                    double PFR = PursontageFr(Convert.ToDouble(dr[1]), Convert.ToDouble(dr[4]));
+                    label_eche_NP_Fr.Text = String.Format("{0:0.00}", PFR) + "%";
                     //Scolarité
-                    int m1 = dtCacule(dtInsStr, Convert.ToDouble(dr[10]), Convert.ToDouble(dr[7]));
-                    label_eche_NP_Sc.Text = m1.ToString();
+                     int m1 = dtCacule(dtInsStr, Convert.ToDouble(dr[10]), Convert.ToDouble(dr[7]), (int)dr[8]);
+                     label_eche_NP_Sc.Text = m1.ToString();
+                    
                     //Transport
-                    int m2 = dtCalculeTr(dtInsStr, Convert.ToDouble(dr[16]), Convert.ToDouble(dr[13]),(int)dr[14]);
+                    int m2 = dtCacule(dtInsStr, Convert.ToDouble(dr[16]), Convert.ToDouble(dr[13]), (int)dr[14]);
                     label_eche_NP_Tr.Text = m2.ToString();
+                   
                     //Prestation1
-                    if(Convert.ToDouble(dr[22])==0)
-                    {
-                        label_eche_NP_Ps1.Text = "0";
-                    }
-                    else
-                    {
-                        int m3 = dtCacule(dtInsStr, Convert.ToDouble(dr[22]), Convert.ToDouble(dr[19]));
-                        label_eche_NP_Ps1.Text = m3.ToString();
-                    }
+                    int m3 = dtCacule(dtInsStr, Convert.ToDouble(dr[22]), Convert.ToDouble(dr[19]), (int)dr[20]);
+                    label_eche_NP_Ps1.Text = m3.ToString();
                     
                     //Prestation2
-                    int m4 = dtCacule(dtInsStr, Convert.ToDouble(dr[28]), Convert.ToDouble(dr[25]));
-                    label_eche_NP_Ps2.Text = m4.ToString();
+                     int m4 = dtCacule(dtInsStr, Convert.ToDouble(dr[28]), Convert.ToDouble(dr[25]), (int)dr[26]);
+                     label_eche_NP_Ps2.Text = m4.ToString();
+                    
                     //Prestation3
-                    int m5 = dtCacule(dtInsStr, Convert.ToDouble(dr[34]), Convert.ToDouble(dr[31]));
-                    label_eche_NP_Ps3.Text = m5.ToString();
+                     int m5 = dtCacule(dtInsStr, Convert.ToDouble(dr[34]), Convert.ToDouble(dr[31]), (int)dr[32]);
+                     label_eche_NP_Ps3.Text = m5.ToString();
+                    
 
 
 
                 }
+            
                 ddr.Close();
                 conn.Close();
             }
         }
 
-        private int dtCalculeTr(string dtIns, double totpy, double ech,int Mois)
+        public static int dtCacule(string dtIns, double totpy, double ech,int Mois)
         {
+            if (ech == 0)
+                return 0;
             String dtNow = DateTime.Now.ToString("dd/MM/yyyy");
-
-            DateTime dt_current = Convert.ToDateTime("18/04/2020");
+      
+            DateTime dt_current = Convert.ToDateTime("22/04/2020");
             DateTime dt_ins = Convert.ToDateTime(dtIns);
             if (dt_ins.Month > 4 && dt_ins.Month < 9)
             {
@@ -740,16 +782,21 @@ namespace Logiciel_de_Paiement
             TimeSpan dt_result = dt_current.Subtract(dt_ins);
             double dt_dif = dt_result.Days;
             int months = (int)dt_dif / 30;
+
+
             if (months == 0)
                 return 0;
             double monthspy = totpy / ech;
-
+  
             if (months > Mois)
                 months = Mois;
 
 
+
+
             if (monthspy >= months)
                 return 0;
+
             return (int)(months - (int)monthspy);
         }
 
@@ -791,47 +838,47 @@ namespace Logiciel_de_Paiement
                 SqlCommand cmmd = new SqlCommand("update Detaile set   éch_Fr = @Fr_éch, Nbr_Fr = @Fr_Nbé,Base_Fr=@Base_Fr,Total_Fr=@Total_Fr,Solde_Fr=@Solde_Fr,éch_Fr_Np=@éch_Fr_Np , éch_Sc = @Sc_éch,  Nbr_Sc = @Sc_Nbé,  Base_Sc=@Base_Sc,Total_Sc=@Total_Sc,Solde_Sc=@Solde_Sc,éch_Sc_Np=@éch_Sc_Np,éch_Tr = @Tr_éch, Nbr_Tr = @Tr_Nbé, Base_Tr=@Base_Tr,Total_Tr=@Total_Tr,Solde_Tr=@Solde_Tr,éch_Tr_Np=@éch_Tr_Np  , éch_Ps1 = @Ps1_éch, Nbr_Ps1 = @Ps1_Nbé,  Base_Ps1=@Base_Ps1,Total_Ps1=@Total_Ps1,Solde_Ps1=@Solde_Ps1,éch_Ps1_Np=@éch_Ps1_Np, éch_Ps2 = @Ps2_éch, Nbr_Ps2 = @Ps2_Nbé, Base_Ps2=@Base_Ps2,Total_Ps2=@Total_Ps2,Solde_Ps2=@Solde_Ps2,éch_Ps2_Np=@éch_Ps2_Np,  éch_Ps3 = @Ps3_éch, Nbr_Ps3 = @Ps3_Nbé, Base_Ps3=@Base_Ps3,Total_Ps3=@Total_Ps3,Solde_Ps3=@Solde_Ps3,éch_Ps3_Np=@éch_Ps3_Np  where Matricule =@id", conn);
                 cmmd.Parameters.AddWithValue("id", tb_Matricule.Text);
                 //parametre de Frais
-                cmmd.Parameters.AddWithValue("Fr_éch", tb_échéance_Fr.Text);
+                cmmd.Parameters.AddWithValue("Fr_éch", Convert.ToDouble(tb_échéance_Fr.Text));
                 cmmd.Parameters.AddWithValue("Fr_Nbé", N_UpDown_Fr.Value);
-                cmmd.Parameters.AddWithValue("Base_Fr", label_Base_Fr.Text);
-                cmmd.Parameters.AddWithValue("Total_Fr", label_Total_Fr.Text);
-                cmmd.Parameters.AddWithValue("Solde_Fr", label_Solde_Fr.Text);
+                cmmd.Parameters.AddWithValue("Base_Fr", Convert.ToDouble(label_Base_Fr.Text));
+                cmmd.Parameters.AddWithValue("Total_Fr", Convert.ToDouble(label_Total_Fr.Text));
+                cmmd.Parameters.AddWithValue("Solde_Fr", Convert.ToDouble(label_Solde_Fr.Text));
                 cmmd.Parameters.AddWithValue("éch_Fr_Np", label_eche_NP_Fr.Text);
 
                 //parametre de Scolaire
-                cmmd.Parameters.AddWithValue("Sc_éch", tb_échéance_Sc.Text);
+                cmmd.Parameters.AddWithValue("Sc_éch", Convert.ToDouble(tb_échéance_Sc.Text));
                 cmmd.Parameters.AddWithValue("Sc_Nbé", N_UpDown_Sc.Text);
-                cmmd.Parameters.AddWithValue("Base_Sc", label_Base_Sc.Text);
-                cmmd.Parameters.AddWithValue("Total_Sc", label_Total_Sc.Text);
-                cmmd.Parameters.AddWithValue("Solde_Sc", label_Solde_Sc.Text);
+                cmmd.Parameters.AddWithValue("Base_Sc", Convert.ToDouble(label_Base_Sc.Text));
+                cmmd.Parameters.AddWithValue("Total_Sc", Convert.ToDouble(label_Total_Sc.Text));
+                cmmd.Parameters.AddWithValue("Solde_Sc", Convert.ToDouble(label_Solde_Sc.Text));
                 cmmd.Parameters.AddWithValue("éch_Sc_Np", label_eche_NP_Sc.Text);
                 //parametre de Transport
-                cmmd.Parameters.AddWithValue("Tr_éch", tb_échéance_Tr.Text);
+                cmmd.Parameters.AddWithValue("Tr_éch", Convert.ToDouble(tb_échéance_Tr.Text));
                 cmmd.Parameters.AddWithValue("Tr_Nbé", N_UpDown_Tr.Text);
-                cmmd.Parameters.AddWithValue("Base_Tr", label_Base_Tr.Text);
-                cmmd.Parameters.AddWithValue("Total_Tr", label_Total_Tr.Text);
-                cmmd.Parameters.AddWithValue("Solde_Tr", label_Solde_Tr.Text);
+                cmmd.Parameters.AddWithValue("Base_Tr", Convert.ToDouble(label_Base_Tr.Text));
+                cmmd.Parameters.AddWithValue("Total_Tr", Convert.ToDouble(label_Total_Tr.Text));
+                cmmd.Parameters.AddWithValue("Solde_Tr", Convert.ToDouble(label_Solde_Tr.Text));
                 cmmd.Parameters.AddWithValue("éch_Tr_Np", label_eche_NP_Tr.Text);
                 //parametre de prestation1
-                cmmd.Parameters.AddWithValue("Ps1_éch", tb_échéance_ps1.Text);
+                cmmd.Parameters.AddWithValue("Ps1_éch", Convert.ToDouble(tb_échéance_ps1.Text));
                 cmmd.Parameters.AddWithValue("Ps1_Nbé", N_UpDown_Ps1.Text);
-                cmmd.Parameters.AddWithValue("Base_Ps1", label_Base_Ps1.Text);
-                cmmd.Parameters.AddWithValue("Total_Ps1", label_Total_Ps1.Text);
-                cmmd.Parameters.AddWithValue("Solde_Ps1", label_Solde_Ps1.Text);
+                cmmd.Parameters.AddWithValue("Base_Ps1", Convert.ToDouble(label_Base_Ps1.Text));
+                cmmd.Parameters.AddWithValue("Total_Ps1", Convert.ToDouble(label_Total_Ps1.Text));
+                cmmd.Parameters.AddWithValue("Solde_Ps1", Convert.ToDouble(label_Solde_Ps1.Text));
                 cmmd.Parameters.AddWithValue("éch_Ps1_Np", label_eche_NP_Ps1.Text);
                 //parametre de prestation2
-                cmmd.Parameters.AddWithValue("Ps2_éch", tb_échéance_ps2.Text);
+                cmmd.Parameters.AddWithValue("Ps2_éch", Convert.ToDouble(tb_échéance_ps2.Text));
                 cmmd.Parameters.AddWithValue("Ps2_Nbé", N_UpDown_Ps2.Text);
-                cmmd.Parameters.AddWithValue("Base_Ps2", label_Base_Ps2.Text);
-                cmmd.Parameters.AddWithValue("Total_Ps2", label_Total_Ps2.Text);
-                cmmd.Parameters.AddWithValue("Solde_Ps2", label_Solde_Ps2.Text);
+                cmmd.Parameters.AddWithValue("Base_Ps2", Convert.ToDouble(label_Base_Ps2.Text));
+                cmmd.Parameters.AddWithValue("Total_Ps2", Convert.ToDouble(label_Total_Ps2.Text));
+                cmmd.Parameters.AddWithValue("Solde_Ps2", Convert.ToDouble(label_Solde_Ps2.Text));
                 cmmd.Parameters.AddWithValue("éch_Ps2_Np", label_eche_NP_Ps2.Text);
                 //parametre de prestation3
-                cmmd.Parameters.AddWithValue("Ps3_éch", tb_échéance_ps3.Text);
+                cmmd.Parameters.AddWithValue("Ps3_éch", Convert.ToDouble(tb_échéance_ps3.Text));
                 cmmd.Parameters.AddWithValue("Ps3_Nbé", N_UpDown_Ps3.Text);
-                cmmd.Parameters.AddWithValue("Base_Ps3", label_Base_Ps3.Text);
-                cmmd.Parameters.AddWithValue("Total_Ps3", label_Total_Ps3.Text);
-                cmmd.Parameters.AddWithValue("Solde_Ps3", label_Solde_Ps3.Text);
+                cmmd.Parameters.AddWithValue("Base_Ps3", Convert.ToDouble(label_Base_Ps3.Text));
+                cmmd.Parameters.AddWithValue("Total_Ps3", Convert.ToDouble(label_Total_Ps3.Text));
+                cmmd.Parameters.AddWithValue("Solde_Ps3", Convert.ToDouble(label_Solde_Ps3.Text));
                 cmmd.Parameters.AddWithValue("éch_Ps3_Np", label_eche_NP_Ps3.Text);
 
                 cmmd.ExecuteNonQuery(); // Exécution de la requête SQL
@@ -1016,6 +1063,24 @@ namespace Logiciel_de_Paiement
         private void panel_Buttones_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+            string anneajout = "";
+            string lstItem = comboBox_An.Items[comboBox_An.Items.Count-1].ToString();
+            string[] dateSplit = lstItem.Split('/');
+            int dateFirst = int.Parse(dateSplit[0]);
+            int dateSecond = int.Parse(dateSplit[1]);
+            ++dateFirst;
+            ++dateSecond;
+            SqlCommand cmd = new SqlCommand("insert into annesScolaire values ('" + dateFirst + "/" + dateSecond + "')",conn);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            fillCombo();
+            MessageBox.Show("Date ajoute");
         }
     }
 }

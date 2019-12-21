@@ -129,6 +129,8 @@ namespace Logiciel_de_Paiement
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBox1.ForeColor = Color.Black;
+            textBox_Comptebnq.Text = comboBox1.SelectedItem.ToString();
+            textBox_Comptebnq.ForeColor = Color.Black;
         }
 
         private void comboBox1_DropDown(object sender, EventArgs e)

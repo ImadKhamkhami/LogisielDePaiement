@@ -60,6 +60,7 @@
             this.btn_compte.TabIndex = 11;
             this.btn_compte.Text = "Ajouter";
             this.btn_compte.UseVisualStyleBackColor = true;
+            this.btn_compte.Click += new System.EventHandler(this.btn_compte_Click);
             // 
             // textBox_mp_utl
             // 

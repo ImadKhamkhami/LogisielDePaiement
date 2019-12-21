@@ -53,12 +53,10 @@
             this.label39 = new System.Windows.Forms.Label();
             this.dateTimePicker_Djeur = new System.Windows.Forms.DateTimePicker();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label_Tanger = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label_Nom_ecole = new System.Windows.Forms.Label();
             this.label_Ns_Arabe = new System.Windows.Forms.Label();
             this.panelCentre = new System.Windows.Forms.Panel();
             this.panel_Buttones = new System.Windows.Forms.Panel();
@@ -121,6 +119,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.comboBox_Sexe = new System.Windows.Forms.ComboBox();
             this.comboBox_An = new System.Windows.Forms.ComboBox();
             this.label_Ans = new System.Windows.Forms.Label();
@@ -141,6 +140,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label_Nom_ecole = new System.Windows.Forms.Label();
+            this.label_Tanger = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -407,7 +408,7 @@
             this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(3, 198);
+            this.pictureBox7.Location = new System.Drawing.Point(8, 197);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(33, 33);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -462,25 +463,12 @@
             this.pictureBox5.TabIndex = 132;
             this.pictureBox5.TabStop = false;
             // 
-            // label_Tanger
-            // 
-            this.label_Tanger.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_Tanger.AutoSize = true;
-            this.label_Tanger.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Tanger.ForeColor = System.Drawing.Color.White;
-            this.label_Tanger.Location = new System.Drawing.Point(50, 12);
-            this.label_Tanger.Name = "label_Tanger";
-            this.label_Tanger.Size = new System.Drawing.Size(94, 30);
-            this.label_Tanger.TabIndex = 133;
-            this.label_Tanger.Text = "Tanger";
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panel3.Controls.Add(this.label_Nom_ecole);
             this.panel3.Controls.Add(this.panel14);
             this.panel3.Controls.Add(this.pictureBox4);
-            this.panel3.Controls.Add(this.label_Nom_ecole);
             this.panel3.Controls.Add(this.label_Ns_Arabe);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(270, 0);
@@ -520,19 +508,6 @@
             this.pictureBox4.TabIndex = 127;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Visible = false;
-            // 
-            // label_Nom_ecole
-            // 
-            this.label_Nom_ecole.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_Nom_ecole.AutoSize = true;
-            this.label_Nom_ecole.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Nom_ecole.ForeColor = System.Drawing.Color.White;
-            this.label_Nom_ecole.Location = new System.Drawing.Point(96, 12);
-            this.label_Nom_ecole.Name = "label_Nom_ecole";
-            this.label_Nom_ecole.Size = new System.Drawing.Size(453, 38);
-            this.label_Nom_ecole.TabIndex = 126;
-            this.label_Nom_ecole.Text = "GROUPE SCOLAIRE ANNOUR";
             // 
             // label_Ns_Arabe
             // 
@@ -762,11 +737,6 @@
             this.N_UpDown_Ps1.Name = "N_UpDown_Ps1";
             this.N_UpDown_Ps1.Size = new System.Drawing.Size(110, 31);
             this.N_UpDown_Ps1.TabIndex = 65;
-            this.N_UpDown_Ps1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.N_UpDown_Ps1.ValueChanged += new System.EventHandler(this.N_UpDown_Ps1_ValueChanged);
             // 
             // tb_échéance_ps1
@@ -809,7 +779,7 @@
             this.label_eche_NP_Ps1.AutoSize = true;
             this.label_eche_NP_Ps1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_eche_NP_Ps1.ForeColor = System.Drawing.Color.Black;
-            this.label_eche_NP_Ps1.Location = new System.Drawing.Point(877, 14);
+            this.label_eche_NP_Ps1.Location = new System.Drawing.Point(899, 12);
             this.label_eche_NP_Ps1.Name = "label_eche_NP_Ps1";
             this.label_eche_NP_Ps1.Size = new System.Drawing.Size(24, 25);
             this.label_eche_NP_Ps1.TabIndex = 71;
@@ -820,7 +790,7 @@
             this.label_Solde_Ps1.AutoSize = true;
             this.label_Solde_Ps1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Solde_Ps1.ForeColor = System.Drawing.Color.Black;
-            this.label_Solde_Ps1.Location = new System.Drawing.Point(748, 12);
+            this.label_Solde_Ps1.Location = new System.Drawing.Point(770, 12);
             this.label_Solde_Ps1.Name = "label_Solde_Ps1";
             this.label_Solde_Ps1.Size = new System.Drawing.Size(24, 25);
             this.label_Solde_Ps1.TabIndex = 70;
@@ -863,11 +833,6 @@
             this.N_UpDown_Ps2.Name = "N_UpDown_Ps2";
             this.N_UpDown_Ps2.Size = new System.Drawing.Size(110, 31);
             this.N_UpDown_Ps2.TabIndex = 65;
-            this.N_UpDown_Ps2.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.N_UpDown_Ps2.ValueChanged += new System.EventHandler(this.N_UpDown_Ps2_ValueChanged);
             // 
             // tb_échéance_ps2
@@ -899,7 +864,7 @@
             this.label_Solde_Ps2.AutoSize = true;
             this.label_Solde_Ps2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Solde_Ps2.ForeColor = System.Drawing.Color.Black;
-            this.label_Solde_Ps2.Location = new System.Drawing.Point(748, 15);
+            this.label_Solde_Ps2.Location = new System.Drawing.Point(770, 11);
             this.label_Solde_Ps2.Name = "label_Solde_Ps2";
             this.label_Solde_Ps2.Size = new System.Drawing.Size(24, 25);
             this.label_Solde_Ps2.TabIndex = 70;
@@ -921,7 +886,7 @@
             this.label_eche_NP_Ps2.AutoSize = true;
             this.label_eche_NP_Ps2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_eche_NP_Ps2.ForeColor = System.Drawing.Color.Black;
-            this.label_eche_NP_Ps2.Location = new System.Drawing.Point(876, 15);
+            this.label_eche_NP_Ps2.Location = new System.Drawing.Point(899, 14);
             this.label_eche_NP_Ps2.Name = "label_eche_NP_Ps2";
             this.label_eche_NP_Ps2.Size = new System.Drawing.Size(24, 25);
             this.label_eche_NP_Ps2.TabIndex = 73;
@@ -964,11 +929,6 @@
             this.N_UpDown_Ps3.Name = "N_UpDown_Ps3";
             this.N_UpDown_Ps3.Size = new System.Drawing.Size(110, 31);
             this.N_UpDown_Ps3.TabIndex = 65;
-            this.N_UpDown_Ps3.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.N_UpDown_Ps3.ValueChanged += new System.EventHandler(this.N_UpDown_Ps3_ValueChanged);
             // 
             // tb_échéance_ps3
@@ -1000,7 +960,7 @@
             this.label_Solde_Ps3.AutoSize = true;
             this.label_Solde_Ps3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Solde_Ps3.ForeColor = System.Drawing.Color.Black;
-            this.label_Solde_Ps3.Location = new System.Drawing.Point(748, 16);
+            this.label_Solde_Ps3.Location = new System.Drawing.Point(770, 12);
             this.label_Solde_Ps3.Name = "label_Solde_Ps3";
             this.label_Solde_Ps3.Size = new System.Drawing.Size(24, 25);
             this.label_Solde_Ps3.TabIndex = 70;
@@ -1022,7 +982,7 @@
             this.label_eche_NP_Ps3.AutoSize = true;
             this.label_eche_NP_Ps3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_eche_NP_Ps3.ForeColor = System.Drawing.Color.Black;
-            this.label_eche_NP_Ps3.Location = new System.Drawing.Point(877, 17);
+            this.label_eche_NP_Ps3.Location = new System.Drawing.Point(899, 10);
             this.label_eche_NP_Ps3.Name = "label_eche_NP_Ps3";
             this.label_eche_NP_Ps3.Size = new System.Drawing.Size(24, 25);
             this.label_eche_NP_Ps3.TabIndex = 74;
@@ -1062,11 +1022,6 @@
             this.N_UpDown_Tr.Name = "N_UpDown_Tr";
             this.N_UpDown_Tr.Size = new System.Drawing.Size(110, 31);
             this.N_UpDown_Tr.TabIndex = 65;
-            this.N_UpDown_Tr.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.N_UpDown_Tr.ValueChanged += new System.EventHandler(this.N_UpDown_Tr_ValueChanged);
             // 
             // tb_échéance_Tr
@@ -1186,11 +1141,6 @@
             this.N_UpDown_Sc.Name = "N_UpDown_Sc";
             this.N_UpDown_Sc.Size = new System.Drawing.Size(110, 31);
             this.N_UpDown_Sc.TabIndex = 65;
-            this.N_UpDown_Sc.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.N_UpDown_Sc.ValueChanged += new System.EventHandler(this.N_UpDown_Sc_ValueChanged);
             // 
             // label_Base_Sc
@@ -1280,7 +1230,7 @@
             // 
             this.tb_échéance_Fr.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_échéance_Fr.ForeColor = System.Drawing.Color.White;
-            this.tb_échéance_Fr.Location = new System.Drawing.Point(206, 13);
+            this.tb_échéance_Fr.Location = new System.Drawing.Point(206, 11);
             this.tb_échéance_Fr.Name = "tb_échéance_Fr";
             this.tb_échéance_Fr.Size = new System.Drawing.Size(134, 31);
             this.tb_échéance_Fr.TabIndex = 42;
@@ -1367,6 +1317,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel5.BackColor = System.Drawing.Color.LightGray;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.button1);
             this.panel5.Controls.Add(this.comboBox_Sexe);
             this.panel5.Controls.Add(this.comboBox_An);
             this.panel5.Controls.Add(this.label_Ans);
@@ -1387,6 +1338,16 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1011, 140);
             this.panel5.TabIndex = 124;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(794, 102);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 105;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox_Sexe
             // 
@@ -1410,23 +1371,10 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBox_An.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_An.FormattingEnabled = true;
-            this.comboBox_An.Items.AddRange(new object[] {
-            "2019/2020",
-            "2020/2021",
-            "2021/2022",
-            "2022/2023",
-            "2023/2024",
-            "2024/2025",
-            "2025/2026",
-            "2026/2027",
-            "2027/2028",
-            "2028/2029",
-            "2029/2030"});
             this.comboBox_An.Location = new System.Drawing.Point(614, 102);
             this.comboBox_An.Name = "comboBox_An";
             this.comboBox_An.Size = new System.Drawing.Size(173, 27);
             this.comboBox_An.TabIndex = 103;
-            this.comboBox_An.Text = "2019/2020";
             // 
             // label_Ans
             // 
@@ -1637,6 +1585,32 @@
             this.label7.TabIndex = 118;
             this.label7.Text = "échéance";
             // 
+            // label_Nom_ecole
+            // 
+            this.label_Nom_ecole.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Nom_ecole.AutoSize = true;
+            this.label_Nom_ecole.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Nom_ecole.ForeColor = System.Drawing.Color.White;
+            this.label_Nom_ecole.Location = new System.Drawing.Point(68, 14);
+            this.label_Nom_ecole.Name = "label_Nom_ecole";
+            this.label_Nom_ecole.Size = new System.Drawing.Size(453, 38);
+            this.label_Nom_ecole.TabIndex = 129;
+            this.label_Nom_ecole.Text = "GROUPE SCOLAIRE ANNOUR";
+            // 
+            // label_Tanger
+            // 
+            this.label_Tanger.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Tanger.AutoSize = true;
+            this.label_Tanger.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Tanger.ForeColor = System.Drawing.Color.White;
+            this.label_Tanger.Location = new System.Drawing.Point(50, 12);
+            this.label_Tanger.Name = "label_Tanger";
+            this.label_Tanger.Size = new System.Drawing.Size(94, 30);
+            this.label_Tanger.TabIndex = 133;
+            this.label_Tanger.Text = "Tanger";
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1706,12 +1680,10 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label_Nom_ecole;
         private System.Windows.Forms.Label label_Ns_Arabe;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.DateTimePicker dateTimePicker_Djeur;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Label label_Tanger;
         private System.Windows.Forms.Panel panelCentre;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.CheckBox checkBox1;
@@ -1810,5 +1782,8 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel_Buttones;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label_Nom_ecole;
+        private System.Windows.Forms.Label label_Tanger;
     }
 }

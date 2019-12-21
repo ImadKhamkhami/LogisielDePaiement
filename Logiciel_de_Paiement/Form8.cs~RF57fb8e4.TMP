@@ -54,57 +54,15 @@ namespace Logiciel_de_Paiement
             //Méthode CalculeMoi
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
+           
                 int matricule = (int)dataGridView1.Rows[i].Cells[0].Value;
-                for (int j = 0; j < dtTbleForm5.Rows.Count; ++j)
+                for(int j = 0; j < dtTbleForm5.Rows.Count; ++j)
                 {
-                    if ((int)dtTbleForm5.Rows[j][0] == matricule)
-                    {
-                        //
-                        string dtInt = dtTbleForm5.Rows[j][8].ToString();
-                        //Fr
-                        double echFr = Convert.ToDouble(dataGridView1.Rows[i].Cells[1].Value);
-                        double totpy = Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value);
-                        string ech_Fr = Form3.PursontageFr(echFr, totpy) + "%";
-                        dataGridView1.Rows[i].Cells[6].Value = ech_Fr;
-                        //Scolarite
-                        double totlp = Convert.ToDouble(dataGridView1.Rows[i].Cells[10].Value);
-                        double ech = Convert.ToDouble(dataGridView1.Rows[i].Cells[7].Value);
-                        int numMoisSc = (int)dataGridView1.Rows[i].Cells[8].Value;
-                        int m = Form3.dtCacule(dtInt, totlp, ech, numMoisSc);
-                        dataGridView1.Rows[i].Cells[12].Value = m;
-                        //Transport
-                        double totlpTr = Convert.ToDouble(dataGridView1.Rows[i].Cells[16].Value);
-                        double echTr = Convert.ToDouble(dataGridView1.Rows[i].Cells[13].Value);
-                        int numMoisTr = (int)dataGridView1.Rows[i].Cells[14].Value;
-                        int mTr = Form3.dtCacule(dtInt, totlpTr, echTr, numMoisTr);
-                        dataGridView1.Rows[i].Cells[18].Value = mTr;
-                        //Prestation1
-                      
-                            double totlpPs1 = Convert.ToDouble(dataGridView1.Rows[i].Cells[22].Value);
-                            double echPs1 = Convert.ToDouble(dataGridView1.Rows[i].Cells[19].Value);
-                            int numMoisPs1 = (int)dataGridView1.Rows[i].Cells[20].Value;
-                            int mPs1 = Form3.dtCacule(dtInt, totlpPs1, echPs1, numMoisPs1);
-                            dataGridView1.Rows[i].Cells[24].Value = mPs1;
+                    string dtInt = dtTbleForm5.Rows[j][8].ToString();
 
-                            //Prestation2
-                            double totlpPs2 = Convert.ToDouble(dataGridView1.Rows[i].Cells[28].Value);
-                          
-                                double echPs2 = Convert.ToDouble(dataGridView1.Rows[i].Cells[25].Value);
-                                int numMoisPs2 = (int)dataGridView1.Rows[i].Cells[26].Value;
-                                int mPs2 = Form3.dtCacule(dtInt, totlpPs2, echPs2, numMoisPs2);
-                                dataGridView1.Rows[i].Cells[30].Value = mPs2;
-                                //Prestation3
-                                double totlpPs3 = Convert.ToDouble(dataGridView1.Rows[i].Cells[34].Value);
-                               
-                                    double echPs3 = Convert.ToDouble(dataGridView1.Rows[i].Cells[31].Value);
-                                    int numMoisPs3 = (int)dataGridView1.Rows[i].Cells[32].Value;
-                                    int mPs3 = Form3.dtCacule(dtInt, totlpPs3, echPs3, numMoisPs3);
-                                    dataGridView1.Rows[i].Cells[36].Value = mPs3;
-                                }
-                            }
-                        }
-                        conn.Close();
-
+                }
+            }
+            conn.Close();
         }
 
         private void Form8_Load(object sender, EventArgs e)

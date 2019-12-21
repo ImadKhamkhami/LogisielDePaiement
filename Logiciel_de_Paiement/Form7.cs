@@ -23,7 +23,7 @@ namespace Logiciel_de_Paiement
         SqlDataReader dr;
         private void show()
         {
-            SqlCommand cmd = new SqlCommand("select * from Paiement where date_Remise_chèq=getdate()", cnx);
+            SqlCommand cmd = new SqlCommand("select * from Paiement where date_Remise_chèq='"+DateTime.Now.Year+"-"+ DateTime.Now.Month+"-"+ DateTime.Now.Day+"'", cnx);
             cnx.Open();
             dr = cmd.ExecuteReader();
 
@@ -44,6 +44,11 @@ namespace Logiciel_de_Paiement
         private void Form7_Load(object sender, EventArgs e)
         {
             show();
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

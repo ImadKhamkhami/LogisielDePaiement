@@ -177,6 +177,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LogicielDePaiementDataSet4.xsd</DependentUpon>
     </Compile>
+    <Compile Include="LogicielDePaiementDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogicielDePaiementDataSet5.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MainCode.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -299,6 +304,17 @@
     </None>
     <None Include="LogicielDePaiementDataSet4.xss">
       <DependentUpon>LogicielDePaiementDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="LogicielDePaiementDataSet5.xsc">
+      <DependentUpon>LogicielDePaiementDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="LogicielDePaiementDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LogicielDePaiementDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LogicielDePaiementDataSet5.xss">
+      <DependentUpon>LogicielDePaiementDataSet5.xsd</DependentUpon>
     </None>
     <None Include="Properties\DataSources\Form5.datasource" />
     <None Include="Properties\Settings.settings">

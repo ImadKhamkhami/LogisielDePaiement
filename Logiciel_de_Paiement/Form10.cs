@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Logiciel_de_Paiement
 {
@@ -87,6 +88,47 @@ namespace Logiciel_de_Paiement
                 textBox_mp_utl.Text = " Mot de passe";
                 textBox_mp_utl.ForeColor = Color.DarkGray;
             }
+        }
+
+        private void btn_compte_Click(object sender, EventArgs e)
+        {
+            string nomAdmin = textBox_Nom_adm.Text;
+            string codeAdmin = textBox_mp_adm.Text;
+            if(nomAdmin.Equals("")|| codeAdmin.Equals(""))
+            {
+                MessageBox.Show("entree nom Admin et code Admin valide");
+                return;
+            }
+            SqlConnection conn = new SqlConnection("Data Source=DESKTOP-RQ9PT5M;Initial Catalog=LogicielDePaiement;Integrated Security=True");
+
+            SqlCommand cmd = new SqlCommand("select * from Logiin",conn);
+            conn.Open();
+            SqlDataReader rd = cmd.ExecuteReader();
+          
+            if (!rd.HasRows)
+            {
+                MessageBox.Show("nom Admin ou code Admin n'est pas valide");
+                conn.Close();
+                return;
+            }
+            while (rd.Read())
+            {
+                if(!rd[0].ToString().Equals(nomAdmin) || !rd[1].ToString().Equals(codeAdmin))
+                {
+                    MessageBox.Show("nom Admin ou code Admin n'est pas valide");
+                    conn.Close();
+                    return;
+                }
+                break;
+            }
+            rd.Close();
+            cmd = new SqlCommand("insert into Logiin values (@nom,@code)",conn);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("nom", textBox_Nom_utl.Text);
+            cmd.Parameters.AddWithValue("code", textBox_mp_utl.Text);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
         }
     }
 }

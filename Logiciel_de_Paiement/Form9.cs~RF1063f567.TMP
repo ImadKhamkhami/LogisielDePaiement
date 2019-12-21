@@ -462,14 +462,6 @@ namespace Logiciel_de_Paiement
 
         private void printDocument2_PrintPage(object sender, PrintPageEventArgs e)
         {
-            DataTable Dp = new DataTable();
-            SqlCommand cmdP = new SqlCommand("Select * from DetailePaiement where N_Reçu=@N_ReçuPaiement", conn);
-            cmdP.Parameters.AddWithValue("N_ReçuPaiement", dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value);
-            conn.Open();
-            SqlDataReader dr = cmdP.ExecuteReader();
-            Dp.Load(dr);
-            conn.Close();
-
             //MessageBox.Show(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value + "");
             e.Graphics.DrawString(label_Nom_ecole.Text, new Font("Century Gothic", 12, FontStyle.Bold), Brushes.Black, 10, 15);
             e.Graphics.DrawString("\n" + "école primaire à Tanger" + "\n", new Font("Century Gothic", 10), Brushes.Black, 20, 25);
@@ -534,8 +526,8 @@ namespace Logiciel_de_Paiement
 
             //////
             e.Graphics.DrawString("الرصيد السنوي السابق", new Font("Arabic Typesetting", 14), Brushes.Black, 400, 240);
-            e.Graphics.DrawString("\n" + "Ancien solde annuel ", new Font("Century Gothic", 9), Brushes.Black, 390, 242);
-            e.Graphics.DrawString("\n" + Dp.Rows[0][1], new Font("Century Gothic", 10), Brushes.Black, 420, 260);
+            //e.Graphics.DrawString("\n" + "Ancien solde annuel ", new Font("Century Gothic", 9), Brushes.Black, 390, 242);
+            //e.Graphics.DrawString("\n" + label_Savp_Fr.Text, new Font("Century Gothic", 10), Brushes.Black, 420, 260);
             //e.Graphics.DrawString("\n" + label_Savp_Sc.Text, new Font("Century Gothic", 10), Brushes.Black, 420, 280);
             //e.Graphics.DrawString("\n" + label_Savp_Tr.Text, new Font("Century Gothic", 10), Brushes.Black, 420, 300);
             //e.Graphics.DrawString("\n" + label_Savp_Ps1.Text, new Font("Century Gothic", 10), Brushes.Black, 420, 320);
